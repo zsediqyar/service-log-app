@@ -1,1 +1,15 @@
 <h1 class="display-1">records page</h1>
+
+<a href="/records/new">new record</a>
+
+
+{{#each records}}
+
+<ul>
+    <li>{{ this.name }}</li>
+    <li>{{ this.last_name }}</li>
+    <li>{{ this.age }}</li>
+</ul>
+
+<a href="/records/<%= records._id %>/edit">edit</a>
+{{/each}}

@@ -1,0 +1,9 @@
+<h1 class="display-1">new record page</h1>
+
+
+<form action="/records/{{records._id}}?_method=PUT" method="POST">
+        <input type="text" name="name" placeholder="enter name" value="{{ records.name}}">
+        <input type="text" name="last_name" placeholder="enter last name" value="{{ records.last_name}}">
+        <input type="number" name="age" placeholder="enter last name" value="{{ records.age}}">
+    <button type="submit">Save</button>
+</form>

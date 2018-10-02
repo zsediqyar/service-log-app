@@ -1,14 +1,16 @@
 var express         = require("express");
 var bodyParser      = require("body-parser");
 var methodOverride  = require("method-override");
-var mongo           = require("mongodb").MongoClient;
+var mongoose        = require("mongoose");
 var expHand         = require("express-handlebars");
 
 var app             = express();
 
+var Records            = require("./models/records");
 
-var url             = "mongodb://localhost:27017/exampleDb";
-    
+
+mongoose.connect("mongodb://localhost/service_log");
+
 
 //********** LIBRARY SETUP
 app.engine('handlebars', expHand({defaultLayout: 'main'}));
@@ -25,20 +27,35 @@ app.get("/", function(req, res, next) {
 
 
 //********** ALL RECORDS PAGE
+app.get("/records", function(req, res, next) {
+    Records.find()
+    .then(function(doc) {
+        res.render("records", {records: doc})
+    });
+});
 
-
-
-//********** ADD RECORD PAGE
+//********** NEW RECORD PAGE
 app.get("/records/new", function(req, res, next) {
     res.render("new");
 });
 
 
+//********** NEW RECORD ADD PROCESS
+app.post("/records", function(req, res, next) {
+    var records = {
+        name: req.body.name,
+        last_name: req.body.last_name,
+        age: req.body.age
+    };
+    
+    var data = new Records(records);
+    data.save();
+    
+    res.redirect("/records");
+})
 
-//********** RECORD ADD PROCESS
 
-
-
+//********** EDIT RECORD PAGE
 
 
 
