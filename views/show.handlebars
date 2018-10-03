@@ -1,0 +1,14 @@
+<h1 class="display-1">show record page</h1>
+
+<a href="/records">back</a>
+
+<ul>
+    <li>{{ records.name}}</li>
+    <li>{{ records.last_name}}</li>
+    <li>{{ records.age}}</li>
+</ul>
+<a href="/records/{{records._id}}/edit">edit</a>
+
+<form action="/records/{{ records._id }}?_method=DELETE" method="POST">
+    <button role="submit" class="btn btn-primary">Delete</button>
+</form>
