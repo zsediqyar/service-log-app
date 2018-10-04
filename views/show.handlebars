@@ -1,14 +1,60 @@
-<h1 class="display-1">show record page</h1>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="title">
+                <h2 class="display-4">{{ records.title }}</h2>
+            </div>
 
-<a href="/records">back</a>
+            
+            <div class="items">
+                <h6>ID</h6>
+                <p>{{ records.id }}</p>
+            </div>
+            <div class="items">
+                <h6>Schedule Date</h6>
+                <p>{{ records.scheduled }}</p>
+            </div>
+            <div class="items">
+                <h6>Title</h6>
+                <p>{{ records.title }}</p>
+            </div>
+            <div class="items">
+                <h6>Description</h6>
+                <p>{{ records.description }}</p>
+            </div>
+            <div class="items">
+                <h6>Forseem Issues That May Arise</h6>
+                <p>{{ records.expectedIssues }}</p>
+            </div>
+            <div class="items">
+                <h6>People In-charge</h6>
+                <p>{{ records.incharge }}</p>
+            </div>
+            <div class="items">
+                <h6>Slack Channel for Communication</h6>
+                <p>{{ records.slackChannel }}</p>
+            </div>    
+            <div id="showBtns" class="float-right">
+            <a href="/records/{{records._id}}/edit" class="btn btn-primary" style="float: left;">Edit</a> 
+            
+            <form action="/records/{{ records._id }}?_method=DELETE" method="POST" style="display: inline;">
+                <button role="submit" class="btn btn-danger">Delete</button>
+            </form>    
+            </div>
+        </div>
+    </div>
+</div>
 
-<ul>
-    <li>{{ records.name}}</li>
-    <li>{{ records.last_name}}</li>
-    <li>{{ records.age}}</li>
-</ul>
-<a href="/records/{{records._id}}/edit">edit</a>
 
-<form action="/records/{{ records._id }}?_method=DELETE" method="POST">
-    <button role="submit" class="btn btn-primary">Delete</button>
-</form>
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,26 @@
+.title {
+    text-align: center;
+    height: 150px;
+    background: lightblue;
+    padding-top: 1.5em;
+}
+
+.newAndEdit {
+    margin-bottom: 3em;    
+}
+
+.items {
+    margin: 1em 0;
+    padding: 1em;
+    border-radius: .5em;
+    box-shadow: 0 0.1rem 1rem rgba(0,0,0,.1)!important
+}
+
+#showBtns a {
+    margin-right: 1em;
+    width: 100px;
+}
+
+#showBtns button {
+    width: 100px !important;
+}

@@ -6,13 +6,13 @@
 {{#each records}}
 
 <ul>
-    <li>{{ this.id }}</li>
-    <li>{{ this.schedule }}</li>
-    <li>{{ this.title }}</li>
-    <li>{{ this.description }}</li>
-    <li>{{ this.expectedIssues }}</li>
-    <li>{{ this.incharge }}</li>
-    <li>{{ this.slackChannel }}</li>
+    <li>ID {{ this.id }}</li>
+    <li>Schedule {{ this.schedule }}</li>
+    <li>Title {{ this.title }}</li>
+    <li>Description {{ this.description }}</li>
+    <li>Forseen Issues that May Arise {{ this.expectedIssues }}</li>
+    <li>Maintenance Incharge {{ this.incharge }}</li>
+    <li>Slack Channel to Follow {{ this.slackChannel }}</li>
 </ul>
 
 <a type="button" class="btn btn-success" href="/records/{{this._id}}">show</a>

@@ -1,25 +1,66 @@
-<h1 class="display-1">new record page</h1>
+
+<div class="container">
+        <div class="row">
+                <div class="col-md-12">
+                        <div class="title newAndEdit">
+                                <h2 class="display-4">Add New Maintenance Record</h2>
+                        </div>
+                        <form action="/records" method="POST">
+                                <div class="form-group">
+                                        <label>ID</label>
+                                        <input type="text" name="serviceRecord[id]" placeholder="Id" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                        <label>Schedule Date</label>
+                                        <input type="datetime-local" name="serviceRecord[scheduled]" placeholder="Date & Time of the Deploy" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                        <label>Title</label>
+                                        <input type="text" name="serviceRecord[title]" placeholder="Title" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                        <label>Description</label>
+                                        <textarea class="form-control" name="serviceRecord[description]" rows="4" placeholder="Describe what is the maintenance for"></textarea>
+                                </div>
+                                <div class="form-group">
+                                        <label>Forseen Issues That May Arise</label>
+                                        <textarea class="form-control" name="serviceRecord[expectedIssues]" rows="4" placeholder="Any potential issues that might arise"></textarea>
+
+                                </div>
+                                <div class="form-group">
+                                        <label>People In-charge</label>
+                                        <input type="text" name="serviceRecord[incharge]" placeholder="Anyone responsible for the maintenance" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                        <label>Slack Channel for Communication</label>
+                                        <input type="text" name="serviceRecord[slackChannel]" placeholder="Slack Channel" class="form-control">
+                                </div>
+                                
+                                <button type="submit" class="btn btn-primary">Save</button>
+                        </form>
+                </div>
+        </div>
+</div>
 
 
-<form action="/records" method="POST">
-        <label>ID</label>
-        <input type="text" name="serviceRecord[id]" placeholder="Id">
-        <label>Schedule Date</label>
-        <input type="datetime-local" name="serviceRecord[scheduled]" placeholder="Date & Time of the Deploy">
-        <label>Title</label>
-        <input type="text" name="serviceRecord[title]" placeholder="Title">
-        <label>Description</label>
-        <input type="text" name="serviceRecord[description]" placeholder="Details of the Deploy">
-        <label>Forseen Issues That May Arise</label>
-        <input type="text" name="serviceRecord[expectedIssues]" placeholder="Expected Problems with the Deploy">
-        <label>People In-charge</label>
-        <input type="text" name="serviceRecord[incharge]" placeholder="People Incharge">
-        <label>Slack Channel for Communication</label>
-        <input type="text" name="serviceRecord[slackChannel]" placeholder="Slack Channel">
-    <button type="submit">Save</button>
-</form>
 
 
 
 
-        <input type="datetime-local" name="serviceRecord[scheduled]" placeholder="Date & Time of the Deploy">
+
+
+
+
+
+
+        
+        
+        
+        
+        
+        
+    
+
+
+
+

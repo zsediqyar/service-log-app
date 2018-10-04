@@ -1,9 +1,46 @@
-<h1 class="display-1">Edit record page</h1>
+
+<div class="container">
+        <div class="row">
+                <div class="col-md-12">
+                        <div class="title newAndEdit">
+                                <h2 class="display-4">Edit: {{ records.title }}</h2>
+                        </div>
+                        <form action="/records/{{ records._id }}?_method=PUT" method="POST">
+                                <div class="form-group">
+                                        <label><h6>ID</h6></label>
+                                        <input type="text" name="serviceRecord[id]" placeholder="Id" class="form-control" value="{{ records.id }}">
+                                </div>
+                                <div class="form-group">
+                                        <label><h6>Schedule Date</h6></label>
+                                        <input type="datetime-local" name="serviceRecord[scheduled]" placeholder="Date & Time of the Deploy" class="form-control" value="{{ records.scheduled }}">
+                                </div>
+                                <div class="form-group">
+                                        <label><h6>Title</h6></label>
+                                        <input type="text" name="serviceRecord[title]" placeholder="Title" class="form-control" value="{{ records.title }}">
+                                </div>
+                                <div class="form-group">
+                                        <label><h6>Description</h6></label>
+                                        <textarea class="form-control" name="serviceRecord[description]" rows="4" placeholder="Describe what is the maintenance for" value="{{ records.description }}"></textarea>
+                                </div>
+                                <div class="form-group">
+                                        <label><h6>Forseen Issues That May Arise</h6></label>
+                                        <textarea class="form-control" name="serviceRecord[expectedIssues]" rows="4" placeholder="Any potential issues that might arise" value="{{ records.expectedIssues }}"></textarea>
+
+                                </div>
+                                <div class="form-group">
+                                        <label><h6>People In-charge</h6></label>
+                                        <input type="text" name="serviceRecord[incharge]" placeholder="Anyone responsible for the maintenance" class="form-control" value="{{ records.incharge }}">
+                                </div>
+                                <div class="form-group">
+                                        <label><h6>Slack Channel for Communication</h6></label>
+                                        <input type="text" name="serviceRecord[slackChannel]" placeholder="Slack Channel" class="form-control" value="{{ records.slackChannel }}">
+                                </div>
+                                
+                                <button type="submit" class="btn btn-primary">Save Edit</button>
+                        </form>
+                </div>
+        </div>
+</div>
 
 
-<form action="/records/{{ records._id }}?_method=PUT" method="POST">
-        <input type="text" name="serviceRecord[name]" placeholder="enter name" value="{{ records.name}}">
-        <input type="text" name="serviceRecord[last_name]" placeholder="enter last name" value="{{ records.last_name}}">
-        <input type="number" name="serviceRecord[age]" placeholder="enter last name" value="{{ records.age}}">
-    <button type="submit">Save</button>
-</form>
+
