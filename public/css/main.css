@@ -1,7 +1,6 @@
 .title {
     text-align: center;
     height: 150px;
-    background: lightblue;
     padding-top: 1.5em;
 }
 
@@ -23,4 +22,26 @@
 
 #showBtns button {
     width: 100px !important;
+}
+
+.nav-item {
+    margin-left: 2em;
+}
+
+.red-star {
+    color: red;
+}
+
+#login-form {
+    padding-left: 30%;
+    padding-right: 30%;
+}
+h6 {
+    font-weight: bold;
+}
+
+@media (max-width: 1023px) {
+    #login-form {
+        padding: 0;
+    }
 }
