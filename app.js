@@ -10,8 +10,13 @@ var app             = express();
 var Records         = require("./models/records");
 
 
+
+
 //DATABASE CONNECTION
 mongoose.connect("mongodb://localhost/service_log");
+var monCon = mongoose.connection.readyState;
+
+
 
 
 //********** LIBRARY SETUP
@@ -25,13 +30,11 @@ app.use(methodOverride("_method"));
 
 
 
+
+
 //********** LOGIN PAGE
-app.get("/", function(req, res, next) {
-   res.render("index", function(err, pass) {
-       if(err) {
-           console.log(err);
-       }
-   });
+app.get("/", function(req, res) {
+    res.render("index");
 });
 
 
@@ -43,6 +46,7 @@ app.get("/records", function(req, res, next) {
     });
 });
 
+
 //********** GET NEW RECORD PAGE
 app.get("/records/new", function(req, res, next) {
     res.render("new");
@@ -51,27 +55,23 @@ app.get("/records/new", function(req, res, next) {
 
 //********** NEW RECORD ADD PROCESS
 app.post("/records", function(req, res, next) {
-    var records = {
-        name: req.body.name,
-        last_name: req.body.last_name,
-        age: req.body.age
-    };
+    var recordData = req.body.serviceRecord;
     
-    var data = new Records(records);
+    var data = new Records(recordData);
     data.save();
     
     res.redirect("/records");
-})
+});
 
 //********** GET RECORD VIEW PAGE
 app.get("/records/:id", function(req, res){
     Records.findById(req.params.id, function(err, shownRecord){
-       if(err){
-           console.log(err);
-           res.redirect("/records");
-       } else {
-           res.render("show", {records: shownRecord});
-       }
+      if(err){
+          console.log(err);
+          res.redirect("/records");
+      } else {
+          res.render("show", {records: shownRecord});
+      }
     });
 });
 
@@ -89,30 +89,45 @@ app.get("/records/:id/edit", function(req, res, next){
 
 //********** RECORD EDIT & UPDATE PROCESS
 app.put("/records/:id", function(req, res){
-   Records.findOneAndUpdate(req.params.id, req.body.serviceRecord, function(err, updatedRecord){
+  Records.findOneAndUpdate(req.params.id, req.body.serviceRecord, function(err, updatedRecord){
       if(err){
           console.log(err);
       } else {
           updatedRecord.save();
           res.redirect("/records");
       }
-   });
+  });
 });
-
 
 
 //********** DELETE RECORD PROCESS
 app.delete("/records/:id", function(req, res){
-   Records.findOneAndDelete(req.params.id, function(err){
-       if(err) {
+  Records.findOneAndDelete(req.params.id, function(err){
+      if(err) {
             console.log(err);
-       } else {
+      } else {
             res.redirect("/records");
-       }
-   });
+      }
+  });
 });
 
 
+
+
+
+
+
 app.listen(process.env.PORT, process.env.IP, function() {
-   console.log("The app is running");
+    console.log("=======================================")
+   console.log("The Server Started");
+   console.log("DB Connection State: " + monCon);
+        if(monCon == 0) {
+            console.log(monCon + ":" + " DB DISCONNECTED");
+        } else if (monCon == 1) {
+            console.log(monCon + ":" + " DB CONNECTED");
+        } else if (monCon == 2) {
+            console.log(monCon + ":" + " DB CONNECTING");
+        } else {
+            console.log(monCon + ":" + " DB DISCONNECTING");
+        }
 });

@@ -2,8 +2,24 @@
 
 
 <form action="/records" method="POST">
-        <input type="text" name="name" placeholder="enter name">
-        <input type="text" name="last_name" placeholder="enter last name">
-        <input type="number" name="age" placeholder="enter last name">
+        <label>ID</label>
+        <input type="text" name="serviceRecord[id]" placeholder="Id">
+        <label>Schedule Date</label>
+        <input type="datetime-local" name="serviceRecord[scheduled]" placeholder="Date & Time of the Deploy">
+        <label>Title</label>
+        <input type="text" name="serviceRecord[title]" placeholder="Title">
+        <label>Description</label>
+        <input type="text" name="serviceRecord[description]" placeholder="Details of the Deploy">
+        <label>Forseen Issues That May Arise</label>
+        <input type="text" name="serviceRecord[expectedIssues]" placeholder="Expected Problems with the Deploy">
+        <label>People In-charge</label>
+        <input type="text" name="serviceRecord[incharge]" placeholder="People Incharge">
+        <label>Slack Channel for Communication</label>
+        <input type="text" name="serviceRecord[slackChannel]" placeholder="Slack Channel">
     <button type="submit">Save</button>
 </form>
+
+
+
+
+        <input type="datetime-local" name="serviceRecord[scheduled]" placeholder="Date & Time of the Deploy">
