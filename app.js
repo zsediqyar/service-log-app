@@ -3,7 +3,7 @@ var bodyParser      = require("body-parser");
 var methodOverride  = require("method-override");
 var mongoose        = require("mongoose");
 var expHand         = require("express-handlebars");
-
+var nodemailer      = require("nodemailer");
 var app             = express();
 
 
@@ -25,8 +25,6 @@ app.set('view engine', 'handlebars');
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(methodOverride("_method"));
-
-
 
 
 
@@ -110,6 +108,19 @@ app.delete("/records/:id", function(req, res){
       }
   });
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

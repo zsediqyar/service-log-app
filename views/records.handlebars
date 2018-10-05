@@ -1,19 +1,45 @@
-<h1 class="display-1">records page</h1>
-
-<a href="/records/new">new record</a>
 
 
-{{#each records}}
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="title">
+                <h2>Upcoming Maintenance Records</h2>
+            </div>
+            <!-- Content Table -->
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Schedule Date</th>
+                        <th scope="col">Title</th>
+                        <th scope="col">Incharge</th>
+                        <th scope="col">Details</th>
+                    </tr>
+                </thead>
+                {{#each records}}
+                <tbody>
+                    <tr class="table-default">
+                        <td>{{ this.id }}</td>
+                        <td>{{ this.schedule }}</td>
+                        <td>{{ this.title }}</td>
+                        <td>{{ this.incharge }}</td>
+                        <td><a href="/records/{{this._id}}">Read More</a></td>
+                    </tr>
+                </tbody>
+                {{/each}}
+            </table>
+        </div>
+    </div>
+    
+</div>
 
-<ul>
-    <li>ID {{ this.id }}</li>
-    <li>Schedule {{ this.schedule }}</li>
-    <li>Title {{ this.title }}</li>
-    <li>Description {{ this.description }}</li>
-    <li>Forseen Issues that May Arise {{ this.expectedIssues }}</li>
-    <li>Maintenance Incharge {{ this.incharge }}</li>
-    <li>Slack Channel to Follow {{ this.slackChannel }}</li>
-</ul>
 
-<a type="button" class="btn btn-success" href="/records/{{this._id}}">show</a>
-{{/each}}
+
+
+
+
+
+
+
+

@@ -3,7 +3,7 @@
         <div class="row">
                 <div class="col-md-12">
                         <div class="title newAndEdit">
-                                <h2 class="display-4">Edit: {{ records.title }}</h2>
+                                <h2><span style="color: tomato;">Edit:</span>&nbsp; {{ records.title }}</h2>
                         </div>
                         <form action="/records/{{ records._id }}?_method=PUT" method="POST">
                                 <div class="form-group">
