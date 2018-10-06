@@ -8,6 +8,7 @@ var recordsSchema = new mongoose.Schema ({
     expectedIssues: String,
     incharge: String,
     slackChannel: String,
+    subtasks: []
 });
 
 module.exports = mongoose.model("Records", recordsSchema);

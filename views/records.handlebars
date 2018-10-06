@@ -14,6 +14,7 @@
                         <th scope="col">Schedule Date</th>
                         <th scope="col">Title</th>
                         <th scope="col">Incharge</th>
+                        <th scope="col">Subtasks</th>
                         <th scope="col">Details</th>
                     </tr>
                 </thead>
@@ -24,6 +25,7 @@
                         <td>{{ this.schedule }}</td>
                         <td>{{ this.title }}</td>
                         <td>{{ this.incharge }}</td>
+                        <td><a href="/records/{{this._id}}">Add</a></td>
                         <td><a href="/records/{{this._id}}">Read More</a></td>
                     </tr>
                 </tbody>

@@ -61,6 +61,9 @@ app.post("/records", function(req, res, next) {
     res.redirect("/records");
 });
 
+//********** GET CHECKLIST PAGE
+
+
 //********** GET RECORD VIEW PAGE
 app.get("/records/:id", function(req, res){
     Records.findById(req.params.id, function(err, shownRecord){
