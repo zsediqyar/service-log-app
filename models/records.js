@@ -2,13 +2,13 @@ var mongoose = require ("mongoose");
 
 var recordsSchema = new mongoose.Schema ({
     id: String,
-    schedule: String,
+    scheduled: Date,
     title: String,
     description: String,
     expectedIssues: String,
     incharge: String,
     slackChannel: String,
-    subtasks: []
+    checkList: []
 });
 
 module.exports = mongoose.model("Records", recordsSchema);
