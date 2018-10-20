@@ -54,3 +54,20 @@ th {
 a {
     color: tomato;
 }
+
+input[type=datetime-local]::-webkit-inner-spin-button, 
+input[type=datetime-local]::-webkit-outer-spin-button,
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button{ 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+
+label {
+    font-weight: bold;
+}
+
+
+
+/* ADDING CHECKLIST TO THE RECORD */
+
