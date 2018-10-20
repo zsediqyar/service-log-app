@@ -4,6 +4,8 @@ var methodOverride  = require("method-override");
 var mongoose        = require("mongoose");
 var expHand         = require("express-handlebars");
 var nodemailer      = require("nodemailer");
+var moment          = require("moment");
+
 var app             = express();
 
 
@@ -18,14 +20,12 @@ var monCon = mongoose.connection.readyState;
 
 
 
-
 //********** LIBRARY SETUP
 app.engine('handlebars', expHand({defaultLayout: 'main'}));
 app.set('view engine', 'handlebars');
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(methodOverride("_method"));
-
 
 
 
@@ -54,14 +54,13 @@ app.get("/records/new", function(req, res, next) {
 //********** NEW RECORD ADD PROCESS
 app.post("/records", function(req, res, next) {
     var recordData = req.body.serviceRecord;
-    
+
     var data = new Records(recordData);
     data.save();
     
     res.redirect("/records");
 });
 
-//********** GET CHECKLIST PAGE
 
 
 //********** GET RECORD VIEW PAGE
@@ -114,10 +113,29 @@ app.delete("/records/:id", function(req, res){
 
 
 
+//********** GET IN-MAIL PAGE
+app.get("/records/:id/inmail", function(req, res, next){
+    Records.findById(req.params.id, function(err, mailRecord){
+        if (err){
+            console.log(err);
+        } else {
+            res.render("inmail", {records: mailRecord});
+        }    
+    });
+});
 
 
 
-
+//********** GET EX-MAIL PAGE
+app.get("/records/:id/exmail", function(req, res, next){
+    Records.findById(req.params.id, function(err, mailRecord){
+        if (err){
+            console.log(err);
+        } else {
+            res.render("exmail", {records: mailRecord});
+        }    
+    });
+});
 
 
 
