@@ -1,4 +1,6 @@
 <div class="container-fluid" style="margin-bottom: 5em;">
+    
+ 
     <div class="title">
             <h2>{{ records.title }}</h2>
         </div>
@@ -58,35 +60,25 @@
                 <ul class="list-group">
                   <li class="list-group-item d-flex justify-content-between align-items-center">
                     Send Client Notification
-                    <a href="">Send</a>
+                    <a href="/records/{{records._id}}/exmail">Send</a>
                   </li>
                   <li class="list-group-item d-flex justify-content-between align-items-center">
                     Send Internal Notification
-                    <a href="">Send</a>
+                    <a href="/records/{{records._id}}/inmail">Send</a>
                   </li>
                 </ul>
             </div> 
             <br><br>
             <div class="card">
                 <div class="card-body text-white bg-primary">
-                    <h6 class="card-title">Tasks Checklist</h6>
+                    <h6 class="card-title">Tasks Checklist</h6> <br>
+                    <input type="text" class="form-control" placeholder="Enter Checklist Items" id="checklistInput" onchange="newChecklist()">
                 </div>
                 
-                <ul class="list-group">
-                  <li class="list-group-item d-flex justify-content-between align-items-center">
-                    Shutdown the website
-                    <span class="badge badge-success badge-pill">Yes</span>
-                  </li>
-                  <li class="list-group-item d-flex justify-content-between align-items-center">
-                    Change the homepage note
-                    <span class="badge badge-danger badge-pill">No</span>
-                  </li>
-                  <li class="list-group-item d-flex justify-content-between align-items-center">
-                    Deploy the patch
-                    <span class="badge badge-success badge-pill">Yes</span>
-                  </li>
+                <ul class="list-group" id="checklistUL">
+                  
                 </ul>
-            </div>   
+            </div>  
         </div>
     </div>
 </div>
@@ -104,3 +96,4 @@
 
 
 
+<script src="../js/checklist.js"></script>
