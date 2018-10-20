@@ -12,7 +12,7 @@
                                 </div>
                                 <div class="form-group">
                                         <label><h6>Schedule Date</h6></label>
-                                        <input type="datetime-local" name="serviceRecord[scheduled]" placeholder="Date & Time of the Deploy" class="form-control" value="{{ records.scheduled }}">
+                                        <input type="date" name="serviceRecord[scheduled]" placeholder="Date & Time of the Deploy" class="form-control" value="{{ records.scheduled }}">
                                 </div>
                                 <div class="form-group">
                                         <label><h6>Title</h6></label>
@@ -20,11 +20,11 @@
                                 </div>
                                 <div class="form-group">
                                         <label><h6>Description</h6></label>
-                                        <textarea class="form-control" name="serviceRecord[description]" rows="4" placeholder="Describe what is the maintenance for" value="{{ records.description }}"></textarea>
+                                        <textarea class="form-control" name="serviceRecord[description]" rows="4" placeholder="Describe what is the maintenance for">{{ records.description }}</textarea>
                                 </div>
                                 <div class="form-group">
                                         <label><h6>Forseen Issues That May Arise</h6></label>
-                                        <textarea class="form-control" name="serviceRecord[expectedIssues]" rows="4" placeholder="Any potential issues that might arise" value="{{ records.expectedIssues }}"></textarea>
+                                        <textarea class="form-control" name="serviceRecord[expectedIssues]" rows="4" placeholder="Any potential issues that might arise">{{ records.expectedIssues }}</textarea>
 
                                 </div>
                                 <div class="form-group">
