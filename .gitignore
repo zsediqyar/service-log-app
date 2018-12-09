@@ -2,3 +2,5 @@
 /mongod
 /data
 .env
+/config
+package-lock.json

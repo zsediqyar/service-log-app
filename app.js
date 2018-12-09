@@ -1,5 +1,3 @@
-var env             = require('dotenv').config()
-
 var express         = require("express");
 var bodyParser      = require("body-parser");
 var methodOverride  = require("method-override");
@@ -7,16 +5,16 @@ var mongoose        = require("mongoose");
 var expHand         = require("express-handlebars");
 var nodemailer      = require("nodemailer");
 
+
 var app             = express();
 
-
+var keys            = require("./config/keys")
 var Records         = require("./models/records");
 var PORT            = 5000;
 
 
-
 //DATABASE CONNECTION
-mongoose.connect("mongodb://DB_USER:DB_PASS@mdb-atlas-aws-test-shard-00-00-vmd8s.mongodb.net:27017,mdb-atlas-aws-test-shard-00-01-vmd8s.mongodb.net:27017,mdb-atlas-aws-test-shard-00-02-vmd8s.mongodb.net:27017/test?ssl=true&replicaSet=mdb-atlas-aws-test-shard-0&authSource=admin&retryWrites=true");
+mongoose.connect('mongodb://MONGO_USER:MONGO_PASS@mdb-atlas-aws-test-shard-00-00-vmd8s.mongodb.net:27017,mdb-atlas-aws-test-shard-00-01-vmd8s.mongodb.net:27017,mdb-atlas-aws-test-shard-00-02-vmd8s.mongodb.net:27017/test?ssl=true&replicaSet=mdb-atlas-aws-test-shard-0&authSource=admin&retryWrites=true');
 var monCon = mongoose.connection.readyState;
 
 
