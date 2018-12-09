@@ -1,3 +1,4 @@
 /node_modules
 /mongod
 /data
+.env
