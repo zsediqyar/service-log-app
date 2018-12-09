@@ -3,4 +3,4 @@
 /data
 .env
 /config
-package-lock.json
+/package-lock.json
