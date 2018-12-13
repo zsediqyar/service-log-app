@@ -1,3 +1,5 @@
+var envFile         = require('dotenv').load();
+
 var express         = require("express");
 var bodyParser      = require("body-parser");
 var methodOverride  = require("method-override");
@@ -47,6 +49,7 @@ app.get("/records", function(req, res, next) {
 //********** GET NEW RECORD PAGE
 app.get("/records/new", function(req, res, next) {
     res.render("new");
+    console.log(process.env);
 });
 
 
